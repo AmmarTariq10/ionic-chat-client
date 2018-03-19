@@ -1,0 +1,29 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Logged in as {{ this.userInfo.name }}</ion-title>
+    <ion-title *ngIf='!this.selectedUser'>{{ this.selectedUser }}</ion-title>
+    
+    
+    <ion-buttons end> <button ion-button (click)='getUsers()' >Online Users</button> </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-scroll scrollY="true" style="width: 100%; height:70%;"> 
+  <div [innerHTML] = 'msgArea'>
+ 
+  </div>
+  </ion-scroll> 
+  <div>
+  <ion-list>
+  <ion-item>
+  <ion-input placeholder="Message" [(ngModel)]='data.message'></ion-input>
+  
+  </ion-item>
+  <ion-item><ion-buttons>
+  <button ion-button block (click) ='send(data.message)' [disabled]='!selectedUser'> {{'Send to ' +  this.selectedUser}} </button>
+  </ion-buttons>
+  </ion-item>
+  </ion-list>
+  </div>

@@ -1,0 +1,17 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Online Users</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<ion-list *ngFor='let user of usersList'>
+
+  <ion-item (click)='selectUser(user.userId)'>
+  <ion-label>{{user.name}}</ion-label><ion-label stacked>{{user.email}}</ion-label>
+  </ion-item>
+
+</ion-list>
+</ion-content>
